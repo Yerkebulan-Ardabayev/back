@@ -1,10 +1,11 @@
-import { Module } from '@nestjs/common';
-import { ActorService } from './actor.service';
-import { ActorController } from './actor.controller';
-import { TypegooseModule } from 'nestjs-typegoose';
-import { ActorModel } from './actor.model';
+import { Module } from '@nestjs/common'
+import { TypegooseModule } from 'nestjs-typegoose'
+import { ActorController } from './actor.controller'
+import { ActorModel } from './actor.model'
+import { ActorService } from './actor.service'
 
 @Module({
+	controllers: [ActorController],
 	imports: [
 		TypegooseModule.forFeature([
 			{
@@ -16,6 +17,5 @@ import { ActorModel } from './actor.model';
 		]),
 	],
 	providers: [ActorService],
-	controllers: [ActorController],
 })
 export class ActorModule {}
